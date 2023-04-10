@@ -3,13 +3,15 @@ import json
 import datetime
 import time
 import random
-import os
+# import os
 import platform
+
 # 自定义python模块(week.py)
 import week
 
 # 获取当前路径
-path = os.getcwd()
+# path = os.getcwd()
+
 # 随机数方法获取小K每日随机心情
 emjoy_radom = round(random.randint(1, 38))-1
 
@@ -22,12 +24,13 @@ birth_next = []
 birthday_next = []
 
 # 加载本地配置
+# PS: 路径记得自己改成自己的文件位置
 if (platform.system() == 'Linux'):
-    with open(path+'/config.json', 'r', encoding='utf-8') as f:
+    with open('/root/Weixin_send/config.json', 'r', encoding='utf-8') as f:
         json_j = json.loads(f.read())
 else:
     if (platform.system() == 'Windows'):
-        with open(path+'.\\Python\\WeixinSend\\config.json', 'r', encoding='utf-8') as f:
+        with open('.\\Python\\WeixinSend\\config.json', 'r', encoding='utf-8') as f:
             json_j = json.loads(f.read())
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -171,6 +174,8 @@ for i in range(2):
     tmpMin = hefeng.get('daily')[0].get('tempMin')  # 最低温
     moonPhase = hefeng.get('daily')[0].get('moonPhase')  # 月相
 
+    tips = week.weather(int(tmpMax), int(tmpMin))  # 获取小K提醒
+
     time_next = hefeng.get('daily')[1].get('fxDate')  # 获取第二天时间 第二日
     weather_next = hefeng.get('daily')[1].get('textDay')  # 天气
     tmpMax_next = hefeng.get('daily')[1].get('tempMax')  # 最高温
@@ -201,11 +206,11 @@ for i in range(2):
                 "color": "#e7b688"
             },
             "tep_high": {
-                "value": tmpMax+"°C",  # 高温
+                "value": "%s°C" % (tmpMax),  # 高温
                 "color": "#c71c33"
             },
             "tep_low": {
-                "value": tmpMin+"°C",  # 低温
+                "value": "%s°C" % (tmpMin),  # 低温
                 "color": "#2892d4"
             },
             "tianqi": {
@@ -219,7 +224,7 @@ for i in range(2):
             "notice": {
                 "value": "\n  小K今日心情: %s"
                 "\n  小K提醒: "
-                "\n    近日早晚温度较低，早上和夜晚记得穿厚点哦" % (emjoy),  # 穿衣贴士
+                "\n    %s" % (emjoy, tips),  # 穿衣贴士
                 "color": "#982f4d"
             },
             "love_days": {
