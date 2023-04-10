@@ -1,0 +1,35 @@
+{
+    "weixin_appID": "",
+    "weixin_appsecret": "",
+    "weixin_access_token": "",
+    "hefeng_token": "",
+    "jinrishici_token": "",
+    "weixin_template": [
+        {
+            "title": "小K日报",
+            "template_ID": ""
+        }
+    ],
+    "weixin_user_ID": [
+        {
+            "weixin_userID": "M.K",
+            "weixin_openID": ""
+        },
+        {
+            "weixin_userID": "Desolateness",
+            "weixin_openID": ""
+        }
+    ],
+    "city": [
+        {
+            "city_name": "商丘市",
+            "provide": "河南省",
+            "city_code": "101181001"
+        },
+        {
+            "city_name": "许昌市",
+            "provide": "河南省",
+            "city_code": "101180401"
+        }
+    ]
+}
