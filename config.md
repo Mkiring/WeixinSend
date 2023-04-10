@@ -7,7 +7,6 @@
 
 #### weixin_access_token
   测试号与微信服务器通信所需要的token，7200s有效期  
-  
   获取方式：GET https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=appID&secret=appsecret
 
 #### city
