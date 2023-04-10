@@ -7,6 +7,7 @@
 #### week.py
     辅助工具，存放值日，星期，随机emjoy
 #### config.json
-    配置文件，存放微信测试号相关信息，具体查看[config.md][1]
+    配置文件，存放微信测试号相关信息，具体查看
+    [config.md][1]
 
 [1]:./config.md
